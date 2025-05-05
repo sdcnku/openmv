@@ -233,7 +233,7 @@ void usbdbg_data_in(uint32_t size, usbdbg_write_callback_t write_callback) {
             uint8_t byte_buffer[size];
             memset(byte_buffer, 0, size);
             uint32_t *buffer = (uint32_t *) byte_buffer;
-            static uint32_t last_update_ms = 0;
+            // static uint32_t last_update_ms = 0;
 
             // Set script running flag
             if (script_running) {
@@ -247,8 +247,9 @@ void usbdbg_data_in(uint32_t size, usbdbg_write_callback_t write_callback) {
             }
 
             // Limit the frames sent over USB to 20Hz.
-            if (ticks_diff_ms(last_update_ms) > 50 &&
-                mutex_try_lock_alternate(&JPEG_FB()->lock, MUTEX_TID_IDE)) {
+            // if (ticks_diff_ms(last_update_ms) > 50 &&
+            //    mutex_try_lock_alternate(&JPEG_FB()->lock, MUTEX_TID_IDE)) {
+            if (mutex_try_lock_alternate(&JPEG_FB()->lock, MUTEX_TID_IDE)) {
                 // If header size == 0 frame is not ready
                 if (JPEG_FB()->size == 0) {
                     // unlock FB
@@ -261,7 +262,7 @@ void usbdbg_data_in(uint32_t size, usbdbg_write_callback_t write_callback) {
                     buffer[1] = JPEG_FB()->w;
                     buffer[2] = JPEG_FB()->h;
                     buffer[3] = JPEG_FB()->size;
-                    last_update_ms = mp_hal_ticks_ms();
+                   // last_update_ms = mp_hal_ticks_ms();
                 }
             }
 
