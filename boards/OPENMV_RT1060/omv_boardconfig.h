@@ -71,6 +71,11 @@
 #define OMV_USB_PHY_TXCAL45DP           (0x06U)
 #define OMV_USB_PHY_TXCAL45DM           (0x06U)
 
+// Enable RAW preview.
+#define OMV_RAW_PREVIEW_ENABLE          (1)
+#define OMV_RAW_PREVIEW_WIDTH           (512)
+#define OMV_RAW_PREVIEW_HEIGHT          (320)
+
 // Linker script constants (see the linker script template mimxrt10xx.ld.S).
 // Note: fb_alloc is a stack-based, dynamically allocated memory on FB.
 // The maximum available fb_alloc memory = FB_ALLOC_SIZE + FB_SIZE - (w*h*bpp).
