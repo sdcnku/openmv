@@ -1,5 +1,5 @@
 /*
- * This file is part of the OpenMV project.
+ * Thhis file is part of the OpenMV project.
  *
  * Copyright (c) 2023 Ibrahim Abdelkader <iabdalkader@openmv.io>
  * Copyright (c) 2023 Kwabena W. Agyeman <kwagyeman@openmv.io>
