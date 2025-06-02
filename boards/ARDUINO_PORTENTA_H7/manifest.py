@@ -3,7 +3,7 @@ include("$(MPY_DIR)/extmod/asyncio")
 # Filesystem
 freeze ("$(OMV_LIB_DIR)/", "_boot.py")
 
-# Drivers
+# Driver
 require("onewire")
 require("ds18x20")
 require("dht")
